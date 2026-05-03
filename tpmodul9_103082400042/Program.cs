@@ -1,23 +1,20 @@
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
+// 1. Tambahkan servis Controller dan Swagger
 builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(); // Baris ini wajib ada!
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// 2. Aktifkan Middleware Swagger
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.UseSwagger();
+    app.UseSwaggerUI(); // Ini yang bikin halaman /swagger muncul
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();
