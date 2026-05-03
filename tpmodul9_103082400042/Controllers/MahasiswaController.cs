@@ -7,10 +7,10 @@ namespace tpmodul9_103082400042.Controllers
     [ApiController]
     public class MahasiswaController : ControllerBase
     {
-        // Poin 3.E: Gunakan static variable
+        
         private static List<Mahasiswa> daftarMahasiswa = new List<Mahasiswa>
         {
-            // Poin 3.C: Nama kamu di urutan pertama
+            
             new Mahasiswa("Andra", "103082400042"),
             new Mahasiswa("Stephen Curry", "1302000002"),
             new Mahasiswa("LeBron James", "1302000001")
